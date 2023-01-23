@@ -26,6 +26,9 @@ sql-скрипт для создания базы worpdress\
 Файл конфигурации mariadb-server.cnf лежит по адресу\
 ##### /etc/my.cnf.d/mariadb-server.cnf
  
- В него нужно [добавить следующее](https://mariadb.com/kb/en/configuring-mariadb-for-remote-client-access/)
- skip-networking=0
- bind_adress = 0.0.0.0
+ В него нужно [добавить следующее](https://mariadb.com/kb/en/configuring-mariadb-for-remote-client-access/)\
+ skip-networking=0  ( вообще, это значение по умолчанию) 
+ > skip_networking
+Описание: если установлено значение 1 (0 — значение по умолчанию), сервер не прослушивает соединения TCP/IP. Все взаимодействие с сервером будет осуществляться через файлы сокетов (Unix), именованные каналы или разделяемую память (Windows). Рекомендуется использовать эту опцию, если только локальным клиентам разрешено подключаться к серверу.
+
+ bind_adress = 0.0.0.0. // позволяет подключится к базе данных с любого IP.
