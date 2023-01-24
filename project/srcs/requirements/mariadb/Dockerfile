@@ -18,3 +18,5 @@ EXPOSE 3306
 COPY tools/my_setting.sh .
 
 RUN sh my_setting.sh && rm my_setting.sh
+
+CMD ["mysqld_safe", "--skip-log-error"]

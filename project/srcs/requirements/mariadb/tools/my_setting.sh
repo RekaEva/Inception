@@ -21,7 +21,7 @@ mysql_install_db
 if [ ! -d "/var/lib/mysql/wordpress" ]; then 
 
     #Запускам БД
-    mysqld_safe
+    # mysqld_safe
 
     mysql
 
