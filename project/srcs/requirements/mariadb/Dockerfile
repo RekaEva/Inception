@@ -5,17 +5,15 @@ FROM alpine:3.17
 RUN apk update && apk upgrade && apk add --no-cache mariadb mariadb-client 
 #&& mkdir /var/run/mysqld
 
-#открываем порт 3306. Он вроде и так по умолчанию открыт, но пусть будет
+#открываем порт 3306. не очень нужно, но вдруг
 EXPOSE 3306
 
-
 # надо ли аргументы здесь, или можно обойтись толь .env?
-
 
 #копируем скрипт из tools в корень образа
 COPY tools/my_setting.sh .
 
-# ARG DB_NAME \
+ENV DB_NAME wordpress
 #     DB_USER \
 #     DB_PASS \
 #     MYSQL_ROOT_PASSWORD
@@ -23,3 +21,4 @@ COPY tools/my_setting.sh .
 RUN chmod +x my_setting.sh && sh my_setting.sh && rm my_setting.sh
 
 CMD ["mysqld_safe", "--skip-log-error"]
+
