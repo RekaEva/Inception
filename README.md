@@ -34,3 +34,5 @@ sql-скрипт для создания базы worpdress\
  bind_adress = 0.0.0.0. // позволяет подключится к базе данных с любого IP.
  
  [Создание самоподписного сертификата]( https://trueconf.ru/blog/baza-znaniy/kak-sgenerirovat-samopodpisannyj-sertifikat.html#_OpenSSL_Linux)
+ 
+ [Очень полезная статья](https://codingwithmanny.medium.com/custom-wordpress-docker-setup-8851e98e6b8)
