@@ -8,15 +8,13 @@ RUN apk update && apk upgrade && apk add --no-cache mariadb mariadb-client
 #открываем порт 3306. не очень нужно, но вдруг
 EXPOSE 3306
 
-# надо ли аргументы здесь, или можно обойтись толь .env?
-
 #копируем скрипт из tools в корень образа
 COPY tools/my_setting.sh .
 
-ENV DB_NAME wordpress
-#     DB_USER \
-#     DB_PASS \
-#     MYSQL_ROOT_PASSWORD
+ARG DB_NAME \
+    DB_USER \
+    DB_PASS \
+    MYSQL_ROOT_PASSWORD
 
 RUN chmod +x my_setting.sh && sh my_setting.sh && rm my_setting.sh
 
