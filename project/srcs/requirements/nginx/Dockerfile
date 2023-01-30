@@ -19,7 +19,6 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout \
 #открываем порт
 EXPOSE 443
 
-
 COPY conf/nginx.conf /etc/nginx/http.d/
 # RUN rm /etc/nginx/http.d/default.conf (если запускать уже с wordpress, то не надо)
 
