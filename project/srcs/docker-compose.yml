@@ -4,8 +4,6 @@ services:
   nginx:
     build:
       context: requirements/nginx/
-      args:
-        DOMAIN_NAME: ${DOMAIN_NAME}
     container_name: my_nginx_compose    
     ports:
       - "443:443"
@@ -13,8 +11,8 @@ services:
       - wordpress
     networks:
       - inception
-    # volumes:
-    #   - wp-volume:/var/www/
+    volumes:
+      - wp-volume:/var/www/
     restart: always
 
   mariadb:
@@ -26,8 +24,8 @@ services:
         DB_PASS: ${DB_PASS}
         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     container_name: my_mariadb_compose
-    # volumes:
-    #   - db-volume:/var/lib/mysql
+    volumes:
+      - db-volume:/var/lib/mysql
     networks:
       - inception
     restart: always
@@ -43,24 +41,24 @@ services:
     restart: always
     networks:
       - inception
-    # volumes:
-    #   - wp-volume:/var/www/
+    volumes:
+      - wp-volume:/var/www/
 
-# volumes:
-# #уточнить про volumes
-#   wp-volume:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: /home/$USER/data/wordpress
+volumes:
+#уточнить про volumes
+  wp-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/$USER/data/wordpress
       
-#   db-volume:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: /home/$USER/data/mariadb
+  db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/$USER/data/mariadb
 
 networks:
     inception:

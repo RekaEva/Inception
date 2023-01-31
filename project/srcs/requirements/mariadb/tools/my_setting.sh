@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 sed -i "s|skip-networking||g" /etc/my.cnf.d/mariadb-server.cnf
 echo [mysqld] > /etc/my.cnf.d/myconfig.cnf

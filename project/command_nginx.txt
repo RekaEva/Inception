@@ -444,7 +444,7 @@ https://mariadb.org/get-involved/
 2023-01-25 10:51:15 0 [Note] mysqld: ready for connections.
 Version: '10.6.11-MariaDB'  socket: '/tmp/mysqld.sock'  port: 3306  MariaDB Server
 mysqladmin: connect to server at 'localhost' failed
-error: 'Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)'
+error: 'Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)'b
 Check that mariadbd is running and that the socket: '/run/mysqld/mysqld.sock' exists!
 The command '/bin/sh -c chmod +x my_setting.sh && sh my_setting.sh && rm my_setting.sh' returned a non-zero code: 1
 cpollito@debian:~/project$ docker build -t maria2 srcs/requirements/mariadb/

@@ -2,6 +2,7 @@
 # syntax=docker/dockerfile-upstream:master-labs
 FROM alpine:3.17
 
+
 RUN apk update && apk upgrade && apk add php81-fpm php81-mysqli mariadb-client curl composer \ 
     && composer global require wp-cli/wp-cli \
     && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
@@ -19,4 +20,6 @@ COPY conf/wp-config-create.sh .
 
 RUN chmod a+x wp-config-create.sh
 
-ENTRYPOINT [ "./wp-config-create.sh" ]
+ENTRYPOINT ["sh", "wp-config-create.sh" ]
+
+# CMD ["./wp-config-create.sh"]
