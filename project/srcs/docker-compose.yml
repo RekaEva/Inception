@@ -4,7 +4,7 @@ services:
   nginx:
     build:
       context: requirements/nginx/
-    container_name: my_nginx_compose    
+    container_name: nginx
     ports:
       - "443:443"
     depends_on:
@@ -23,7 +23,7 @@ services:
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    container_name: my_mariadb_compose
+    container_name: mariadb
     volumes:
       - db-volume:/var/lib/mysql
     networks:
@@ -35,7 +35,7 @@ services:
       context: requirements/wordpress/
     env_file:
       - .env
-    container_name: my_wordpress_compose
+    container_name: wordpress
     depends_on:
       - mariadb
     restart: always
@@ -45,7 +45,6 @@ services:
       - wp-volume:/var/www/
 
 volumes:
-#уточнить про volumes
   wp-volume:
     driver: local
     driver_opts:
