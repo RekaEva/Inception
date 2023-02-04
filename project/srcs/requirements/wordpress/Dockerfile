@@ -18,7 +18,7 @@ RUN mkdir -p /var/www/wordpress /run/mysqld && wp core download --path=/var/www/
 
 COPY conf/wp-config-create.sh .
 
-RUN chmod a+x wp-config-create.sh
+RUN chmod a+x wp-config-create.sh 
 
 ENTRYPOINT ["sh", "wp-config-create.sh" ]
 
